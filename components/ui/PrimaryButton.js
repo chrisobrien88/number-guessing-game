@@ -1,5 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
+import Colors from "../../constants/colors";
+
 const PrimaryButton = ({ children, onPress }) => {
   // pressHandler here is unnecessary but useful to see the link between the onPress prop of our custom PrimaryButton component and onPress prop of the Pressable component.
   const pressHandler = () => {
@@ -21,7 +23,7 @@ const PrimaryButton = ({ children, onPress }) => {
             : styles.buttonInnerContainer
         }
         onPress={pressHandler}
-        android_ripple={{ color: "#173856" }}
+        android_ripple={{ color: Colors.primary600 }}
       >
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
     width: 120,
   },
   buttonInnerContainer: {
-    backgroundColor: "#27063c",
+    backgroundColor: Colors.primary500,
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,
