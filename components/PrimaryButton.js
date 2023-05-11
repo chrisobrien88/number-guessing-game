@@ -1,8 +1,9 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-const PrimaryButton = ({ children }) => {
+const PrimaryButton = ({ children, onPress }) => {
+  // pressHandler here is unnecessary but useful to see the link between the onPress prop of our custom PrimaryButton component and onPress prop of the Pressable component.
   const pressHandler = () => {
-    console.log("PrimaryButton pressed");
+    onPress();
   };
 
   return (
