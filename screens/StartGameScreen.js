@@ -34,8 +34,8 @@ const StartGameScreen = ({ onPickNumber }) => {
   };
 
   return (
-    <View>
-      <Title style={styles.rootContainer}>Start a New Game!</Title>
+    <View style={styles.rootContainer}>
+      <Title style={styles.rootContainer}>Klever Kat thinks he can read minds</Title>
       <Card>
         <InstructionText>Enter a Number</InstructionText>
         <TextInput
@@ -63,7 +63,8 @@ const StartGameScreen = ({ onPickNumber }) => {
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 50,
+    paddingVertical: 2,
     alignItems: "center",
   },
 

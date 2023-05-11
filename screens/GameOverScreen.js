@@ -7,17 +7,17 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 const GameOverScreen = ({ roundsNumber, userNumber, onRestart }) => {
   return (
     <View style={styles.screen}>
-      <Title>Game Over!</Title>
+      <Title>Klever Kat can read your mind!</Title>
 
       <View style={styles.imageContainer}>
         <Image
-          source={require("../assets/images/coolCat.jpg")}
+          source={require("../assets/images/surprisedCat.jpg")}
           style={styles.image}
         />
       </View>
 
       <Text style={styles.summaryText}>
-        Klever Kat needed <Text style={styles.highlightedText}>{roundsNumber}</Text> rounds to guess your number <Text style={styles.highlightedText}>{userNumber}</Text>
+        He only needed <Text style={styles.highlightedText}>{roundsNumber}</Text> rounds to guess the number <Text style={styles.highlightedText}>{userNumber}</Text>
       </Text>
       <PrimaryButton onPress={onRestart}>
         Play Again
