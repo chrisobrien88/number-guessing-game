@@ -46,11 +46,11 @@ The project structure follows a typical React Native project structure. The key 
 - Expo
 - JavaScript
 
-![Enter a number](assets/images/screenshot1.jpg)
+![Enter a number](assets/images/screenshot1.png)
 
-![Higher or lower](assets/images/screenshot2.jpg)
+![Higher or lower](assets/images/screenshot2.png)
 
-![Previous guesses](assets/images/screenshot3.jpg)
+![Previous guesses](assets/images/screenshot3.png)
 
-![Game over](assets/images/screenshot4.jpg)
+![Game over](assets/images/screenshot4.png)
 
