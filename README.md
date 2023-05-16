@@ -46,6 +46,12 @@ The project structure follows a typical React Native project structure. The key 
 - Expo
 - JavaScript
 
+### Improvements
+
+- Design - current format is usable but unappealing.
+- Game logic - the game is reptitive and does not require any skill from the user. It would be more interesting if the user had to guess the number. 
+- Variety of messages. The game over message and image should vary depending on how many guesses were taken.
+
 ![Enter a number](assets/images/screenshot1.png)
 
 ![Higher or lower](assets/images/screenshot4.png)
