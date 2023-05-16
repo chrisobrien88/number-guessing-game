@@ -1,5 +1,6 @@
 <h2>Number Guessing Game</h2>
 <p>This is a simple React Native application built to create a number guessing game. The game allows the user to input a number, and the program will attempt to guess that number by making informed guesses based on the user's feedback. The purpose of this project is to provide a hands-on learning experience with React Native and Expo.</p>
+
 <h3>How to Run the Application</h3>
 <p>To run the application, you need to have Expo installed on your system. If you haven't installed Expo, you can follow the instructions provided in the <a href="https://docs.expo.io/get-started/installation/">Expo documentation</a>.</p>
 <ol>
@@ -33,7 +34,7 @@
   <li><strong>App.js</strong>: The entry point of the application that sets up the app's main components and screens.</li>
   <li><strong>screens/</strong>: Contains the different screens of the application, including the welcome screen and the game screen.</li>
   <li><strong>components/</strong>: Contains reusable components used throughout the application, such as buttons and input fields.</li>
-  <li><strong>utils/</strong>: Contains utility functions used for number generation and guessing logic.</li>
+  <li><strong>assets/</strong>: Contains fonts and images for the app.</li>
 </ul>
 <h3>Technologies Used</h3>
 <ul>
@@ -41,3 +42,5 @@
   <li>Expo</li>
   <li>JavaScript</li>
 </ul>
+
+<img src="../assets/images/cat1.jpg" width="30">
