@@ -48,9 +48,9 @@ The project structure follows a typical React Native project structure. The key 
 
 ![Enter a number](assets/images/screenshot1.png)
 
-![Higher or lower](assets/images/screenshot2.png)
+![Higher or lower](assets/images/screenshot4.png)
 
 ![Previous guesses](assets/images/screenshot3.png)
 
-![Game over](assets/images/screenshot4.png)
+![Game over](assets/images/screenshot2.png)
 
