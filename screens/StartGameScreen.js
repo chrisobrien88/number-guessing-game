@@ -1,4 +1,4 @@
-import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
+import { TextInput, View, StyleSheet, Alert, useWindowDimensions } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 
@@ -8,6 +8,13 @@ import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
 
 const StartGameScreen = ({ onPickNumber }) => {
+
+  // below the width and height of the device are extracted from the useWindowDimensions hook. 
+  // This hook is more responsive than Dimensions.get("window").width and Dimensions.get("window").height
+  // because it updates the width and height of the device when the device is rotated. 
+  // The Dimensions API does not update the width and height of the device when the device is rotated.
+  const { width, height } = useWindowDimensions();
+
   const [enteredNumber, setEnteredNumber] = useState("");
 
   // the text is input into the onChangeText prop of the TextInput component by React Native.
@@ -33,15 +40,17 @@ const StartGameScreen = ({ onPickNumber }) => {
     onPickNumber(chosenNumber);
   };
 
+  const marginTopDistance = height < 380 ? 30 : 100;
+
   return (
-    <View style={styles.rootContainer}>
+    <View style={[styles.rootContainer, {marginTop: marginTopDistance}]}>
       <Title style={styles.rootContainer}>Klever Kat thinks he can read minds</Title>
       <Card>
         <InstructionText>Enter a Number</InstructionText>
         <TextInput
           style={styles.numberInput}
           maxLength={2}
-          // keyboardType="number-pad"
+          keyboardType="number-pad"
           autoCapitalize="none"
           autoCorrect={false}
           value={enteredNumber}
@@ -60,10 +69,14 @@ const StartGameScreen = ({ onPickNumber }) => {
   );
 };
 
+// const deviceHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: 50,
+    // the marginTop property is being set using the useWindowDimensions hook (line 16). 
+    // See the marginTopDistance variable above and the array in the style prop of the View component above (line 46).
+    // marginTop: 24,
     paddingVertical: 2,
     alignItems: "center",
   },
