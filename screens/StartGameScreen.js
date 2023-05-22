@@ -1,4 +1,12 @@
-import { TextInput, View, StyleSheet, Alert, useWindowDimensions } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+  KeyboardAvoidingView,
+  ScrollView,
+} from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 
@@ -8,10 +16,9 @@ import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
 
 const StartGameScreen = ({ onPickNumber }) => {
-
-  // below the width and height of the device are extracted from the useWindowDimensions hook. 
+  // below the width and height of the device are extracted from the useWindowDimensions hook.
   // This hook is more responsive than Dimensions.get("window").width and Dimensions.get("window").height
-  // because it updates the width and height of the device when the device is rotated. 
+  // because it updates the width and height of the device when the device is rotated.
   // The Dimensions API does not update the width and height of the device when the device is rotated.
   const { width, height } = useWindowDimensions();
 
@@ -43,38 +50,53 @@ const StartGameScreen = ({ onPickNumber }) => {
   const marginTopDistance = height < 380 ? 30 : 100;
 
   return (
-    <View style={[styles.rootContainer, {marginTop: marginTopDistance}]}>
-      <Title style={styles.rootContainer}>Klever Kat thinks he can read minds</Title>
-      <Card>
-        <InstructionText>Enter a Number</InstructionText>
-        <TextInput
-          style={styles.numberInput}
-          maxLength={2}
-          keyboardType="number-pad"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={enteredNumber}
-          onChangeText={numberInputHandler}
-        />
-        <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-          </View>
-          <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-          </View>
+        
+    <ScrollView style={styles.screen}>
+      {/* We need the ScrollView here to help with styling whilst using the KeyboardAvodingView */}
+
+      {/* KeyboardAvoidingView is used to avoid the keyboard covering the TextInput component. */}
+      <KeyboardAvoidingView style={styles.screen} behavior="position">
+        <View style={[styles.rootContainer, { marginTop: marginTopDistance }]}>
+          <Title style={styles.rootContainer}>
+            Klever Kat thinks he can read minds
+          </Title>
+          <Card>
+            <InstructionText>Enter a Number</InstructionText>
+            <TextInput
+              style={styles.numberInput}
+              maxLength={2}
+              keyboardType="number-pad"
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={enteredNumber}
+              onChangeText={numberInputHandler}
+            />
+            <View style={styles.buttonsContainer}>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+              </View>
+              <View style={styles.buttonContainer}>
+                <PrimaryButton onPress={confirmInputHandler}>
+                  Confirm
+                </PrimaryButton>
+              </View>
+            </View>
+          </Card>
         </View>
-      </Card>
-    </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
 // const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   rootContainer: {
     flex: 1,
-    // the marginTop property is being set using the useWindowDimensions hook (line 16). 
+    // the marginTop property is being set using the useWindowDimensions hook (line 16).
     // See the marginTopDistance variable above and the array in the style prop of the View component above (line 46).
     // marginTop: 24,
     paddingVertical: 2,
